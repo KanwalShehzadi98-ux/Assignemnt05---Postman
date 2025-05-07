@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "e158ae5f-c522-4a43-9c4e-e2035decc0d9",
+		"name": "Assignment 05",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31648743"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users?page=2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"kanwal.shehzadi@reqres.in\",\r\n    \"first_name\": \"Kanwal\",\r\n    \"last_name\": \"Shehzadi\",\r\n    \"avatar\": \"https://reqres.in/img/faces/9-image.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Kanwal Updated Only\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users/9",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users/9",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RandomDataPost",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"{{$randomFirstName}} {{$randomLastName}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"job\": \"{{$randomJobTitle}}\",\r\n  \"avatar\": \"https://reqres.in/img/faces/9-image.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// let res = pm.response.json();\r",
+							"\r",
+							"// console.log(\"ID:\", res.data.id);\r",
+							"// console.log(\"First Name:\", res.data.first_name);\r",
+							"// console.log(\"Last Name:\", res.data.last_name);\r",
+							"// console.log(\"Email:\", res.data.email);\r",
+							"// console.log(\"Avatar:\", res.data.avatar);\r",
+							"// console.log(\"Support Text:\", res.support.text);\r",
+							"\r",
+							"// let jsonData = pm.response.json();\r",
+							"\r",
+							"// // Chai assertions\r",
+							"// pm.test(\"Status code is 200\", function () {\r",
+							"//     pm.response.to.have.status(200);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"ID is 6\", function () {\r",
+							"//     pm.expect(jsonData.data.id).to.eql(6);\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"First name is Tracey\", function () {\r",
+							"//     pm.expect(jsonData.data.first_name).to.eql(\"Tracey\");\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"Email is correct\", function () {\r",
+							"//     pm.expect(jsonData.data.email).to.eql(\"tracey.ramos@reqres.in\");\r",
+							"// });\r",
+							"\r",
+							"// let jsonData = pm.response.json();\r",
+							"\r",
+							"// pm.test(\"This test will deliberately fail\", function () {\r",
+							"//     pm.expect(jsonData.data.first_name).to.eql(\"WrongName\");  // Actual: \"Tracey\"\r",
+							"// });\r",
+							"\r",
+							"console.log(\"First Name:\", pm.variables.get(\"userFirstName\"));\r",
+							"console.log(\"Email:\", pm.variables.get(\"userEmail\"));\r",
+							"console.log(\"Avatar:\", pm.variables.get(\"userAvatar\"));\r",
+							"\r",
+							"// Now clear the variables\r",
+							"pm.variables.unset(\"userId\");\r",
+							"pm.variables.unset(\"userEmail\");\r",
+							"pm.variables.unset(\"userFirstName\");\r",
+							"pm.variables.unset(\"userLastName\");\r",
+							"pm.variables.unset(\"userAvatar\");\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"userId\", 10);\r",
+							"pm.variables.set(\"userEmail\", \"kanwal.shehzadi@\" + Math.floor(Math.random() * 1000) + \".com\");\r",
+							"pm.variables.set(\"userFirstName\", \"Kanwal\");\r",
+							"pm.variables.set(\"userLastName\", \"Shehzadi\");\r",
+							"pm.variables.set(\"userAvatar\", \"https://reqres.in/img/faces/10-image.jpg\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"{{userId}}\",\r\n  \"email\": \"{{userEmail}}\",\r\n  \"first_name\": \"{{userFirstName}}\",\r\n  \"last_name\": \"{{userLastName}}\",\r\n  \"avatar\": \"{{userAvatar}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
